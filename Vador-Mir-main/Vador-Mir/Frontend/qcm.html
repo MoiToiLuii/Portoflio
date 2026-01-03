@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace administrateur - Projet Nuit de l'Info</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<header class="topbar">
+    <h1 class="site-title">Vador-Mir</h1>
+
+    <nav aria-label="Navigation principale">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="admin.html">Espace admin</a></li>
+            <li class="nav-item"><a href="index.html">Accueil</a></li>
+            <li class="nav-item"><a href="chatbot.html">Chatbot IA</a></li>
+            <li class="nav-item"><a href="formation.html">Formation</a></li>
+            <li class="nav-item"><a href="sante.html">Santé</a></li>
+
+            <li class="nav-item nav-right">
+                <a href="signup.html">Inscription</a>
+                <button id="logout-btn" type="button" class="link-button">
+                    Déconnexion
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div class="container">
+        <h1>QCM Sport & Santé</h1>
+        <p>Réponds à ces questions pour recevoir des exercices personnalisés !</p>
+
+        <form id="qcmForm">
+            <!-- Section Condition Physique et Santé -->
+            <h2>Condition Physique et Santé</h2>
+
+            <div class="question">
+                <p>As-tu passé une visite médicale récente (moins d'1 an) ?</p>
+                <label><input type="radio" name="visite_medicale" value="oui_tout_va_bien" required> Oui, tout va bien</label>
+                <label><input type="radio" name="visite_medicale" value="oui_restrictions"> Oui, mais avec des restrictions</label>
+                <input type="text" id="restrictions" placeholder="Précise ici..." style="display: none; margin-left: 20px;">
+                <label><input type="radio" name="visite_medicale" value="non_bonne_sante"> Non, mais je me sens en bonne santé</label>
+                <label><input type="radio" name="visite_medicale" value="non_pas_de_sport"> Non, et je n’ai pas fait de sport depuis longtemps</label>
+            </div>
+
+            <div class="question">
+                <p>Es-tu en rééducation ou as-tu suivi une rééducation ces 2 dernières années ?</p>
+                <label><input type="radio" name="reeducation" value="non" required> Non</label>
+                <label><input type="radio" name="reeducation" value="oui_blessure"> Oui, pour une blessure musculaire/articulaire</label>
+                <input type="text" id="blessure" placeholder="Précise ici..." style="display: none; margin-left: 20px;">
+                <label><input type="radio" name="reeducation" value="oui_operation"> Oui, pour une opération</label>
+                <input type="text" id="operation" placeholder="Précise ici..." style="display: none; margin-left: 20px;">
+                <label><input type="radio" name="reeducation" value="oui_probleme_cardiaque"> Oui, pour un problème cardiaque/respiratoire</label>
+            </div>
+
+            <div class="question">
+                <p>As-tu déjà subi une opération qui pourrait impacter ta pratique sportive ?</p>
+                <label><input type="radio" name="operation_impact" value="non" required> Non</label>
+                <label><input type="radio" name="operation_impact" value="oui_genoux"> Oui, opération des genoux/hanches</label>
+                <label><input type="radio" name="operation_impact" value="oui_dos"> Oui, opération du dos/colonne vertébrale</label>
+                <label><input type="radio" name="operation_impact" value="oui_epaules"> Oui, opération des épaules/poignets</label>
+                <label><input type="radio" name="operation_impact" value="oui_autre"> Oui, autre</label>
+                <input type="text" id="operation_autre" placeholder="Précise ici..." style="display: none; margin-left: 20px;">
+            </div>
+
+            <div class="question">
+                <p>Ressens-tu des douleurs lors de certains mouvements ?</p>
+                <label><input type="checkbox" name="douleurs" value="aucune"> Aucune douleur</label>
+                <label><input type="checkbox" name="douleurs" value="genoux"> Douleurs aux genoux</label>
+                <label><input type="checkbox" name="douleurs" value="dos"> Douleurs au dos/lombaires</label>
+                <label><input type="checkbox" name="douleurs" value="epaules"> Douleurs aux épaules/poignets</label>
+                <label><input type="checkbox" name="douleurs" value="autre"> Autres</label>
+                <input type="text" id="douleurs_autre" placeholder="Précise ici..." style="display: none; margin-left: 20px;">
+            </div>
+
+            <div class="question">
+                <p>Comment évalues-tu ton endurance actuelle ?</p>
+                <label><input type="radio" name="endurance" value="essouffle_1_etage" required> Je suis essoufflé·e après monter 1 étage</label>
+                <label><input type="radio" name="endurance" value="marcher_30_min"> Je peux marcher 30 min sans difficulté, mais pas courir</label>
+                <label><input type="radio" name="endurance" value="courir_10_min"> Je peux courir 10–15 min sans m’arrêter</label>
+                <label><input type="radio" name="endurance" value="sport_intensif"> Je peux faire du sport intensif 30 min et plus</label>
+            </div>
+
+            <!-- Section Budget -->
+            <h2>Budget</h2>
+
+            <div class="question">
+                <p>Quel est ton budget mensuel pour le sport ?</p>
+                <label><input type="radio" name="budget" value="0_euro" required> 0 € (je veux des solutions gratuites)</label>
+                <label><input type="radio" name="budget" value="moins_20_euro"> Moins de 20 €</label>
+                <label><input type="radio" name="budget" value="20_50_euro"> 20–50 €</label>
+                <label><input type="radio" name="budget" value="50_100_euro"> 50–100 €</label>
+                <label><input type="radio" name="budget" value="plus_100_euro"> Plus de 100 €</label>
+            </div>
+
+            <div class="question">
+                <p>Serais-tu prêt·e à investir dans du matériel si nécessaire ?</p>
+                <label><input type="radio" name="investissement_materiel" value="non" required> Non, je veux utiliser ce que j’ai déjà</label>
+                <label><input type="radio" name="investissement_materiel" value="oui_basique"> Oui, pour du matériel basique (&lt; 50 €)</label>
+                <label><input type="radio" name="investissement_materiel" value="oui_qualite"> Oui, pour du matériel de qualité (50–200 €)</label>
+                <label><input type="radio" name="investissement_materiel" value="oui_sans_limite"> Oui, sans limite si c’est justifié</label>
+            </div>
+
+            <!-- Section Endroit pour Faire du Sport -->
+            <h2>Endroit pour Faire du Sport</h2>
+
+            <div class="question">
+                <p>Où préfères-tu faire du sport ?</p>
+                <label><input type="checkbox" name="endroit_sport" value="chez_moi"> Chez moi</label>
+                <label><input type="checkbox" name="endroit_sport" value="exterieur"> En extérieur</label>
+                <label><input type="checkbox" name="endroit_sport" value="salle"> En salle de sport</label>
+                <label><input type="checkbox" name="endroit_sport" value="chez_moi_occasion_exterieur"> À la maison + occasionnellement en extérieur</label>
+            </div>
+
+            <div class="question" id="chez_moi_details" style="display: none;">
+                <p>Si tu choisis "chez toi", as-tu… ?</p>
+                <label><input type="checkbox" name="chez_moi_equipement" value="espace_degage"> Un espace dégagé d’au moins 2x2 mètres</label>
+                <label><input type="checkbox" name="chez_moi_equipement" value="tapis_sol"> Un tapis de sol</label>
+                <label><input type="checkbox" name="chez_moi_equipement" value="mur_exercices"> Un mur pour des exercices</label>
+                <label><input type="checkbox" name="chez_moi_equipement" value="aucun_espace"> Aucun espace dédié</label>
+            </div>
+
+            <div class="question" id="exterieur_details" style="display: none;">
+                <p>Si tu choisis "en extérieur", as-tu accès à… ?</p>
+                <label><input type="checkbox" name="exterieur_equipement" value="parc_agres"> Un parc avec des agrès</label>
+                <label><input type="checkbox" name="exterieur_equipement" value="sentiers"> Des sentiers de randonnée/course</label>
+                <label><input type="checkbox" name="exterieur_equipement" value="piscine"> Une piscine/lac</label>
+                <label><input type="checkbox" name="exterieur_equipement" value="aucun_equipement"> Aucun équipement spécifique</label>
+            </div>
+
+            <!-- Section Fréquence d'Entraînement -->
+            <h2>Fréquence d'Entraînement</h2>
+
+            <div class="question">
+                <p>Combien de séances par semaine peux-tu faire ?</p>
+                <label><input type="radio" name="frequence" value="1_seance" required> 1 séance</label>
+                <label><input type="radio" name="frequence" value="2_seances"> 2 séances</label>
+                <label><input type="radio" name="frequence" value="3_seances"> 3 séances</label>
+                <label><input type="radio" name="frequence" value="4_seances_plus"> 4 séances ou plus</label>
+            </div>
+
+            <div class="question">
+                <p>À quel moment de la journée préfères-tu t’entraîner ?</p>
+                <label><input type="radio" name="moment_journee" value="matin" required> Le matin</label>
+                <label><input type="radio" name="moment_journee" value="midi"> Midi</label>
+                <label><input type="radio" name="moment_journee" value="soir"> Le soir</label>
+                <label><input type="radio" name="moment_journee" value="flexible"> Quand j’ai le temps</label>
+            </div>
+
+            <div class="question">
+                <p>Préfères-tu… ?</p>
+                <label><input type="radio" name="type_seance" value="courtes_intenses" required> Des séances courtes et intenses (15–20 min)</label>
+                <label><input type="radio" name="type_seance" value="longues_moderees"> Des séances longues et modérées (45 min–1h)</label>
+                <label><input type="radio" name="type_seance" value="mix"> Un mix des deux</label>
+            </div>
+
+            <!-- Section Objectifs Complémentaires -->
+            <h2>Objectifs Complémentaires</h2>
+
+            <div class="question">
+                <p>Veux-tu intégrer des exercices spécifiques ?</p>
+                <label><input type="checkbox" name="exercices_specifices" value="echauffement"> Échauffement/étirements</label>
+                <label><input type="checkbox" name="exercices_specifices" value="respiration"> Respiration/relaxation</label>
+                <label><input type="checkbox" name="exercices_specifices" value="mobilite"> Mobilité/équilibre</label>
+                <label><input type="checkbox" name="exercices_specifices" value="renforcement"> Renforcement ciblé</label>
+            </div>
+
+            <div class="question">
+                <p>Souhaites-tu un suivi de tes progrès ?</p>
+                <label><input type="radio" name="suivi_progres" value="oui_mesures_simples" required> Oui, avec des mesures simples</label>
+                <label><input type="radio" name="suivi_progres" value="oui_outils"> Oui, avec des outils</label>
+                <label><input type="radio" name="suivi_progres" value="non"> Non</label>
+            </div>
+
+            <button type="submit">Valider mes réponses</button>
+        </form>
+    </div>
+    <div class="bottombar">
+    <a href="contact.html">Nous contacter</a>
+    <a href="fournisseur.html">Fournisseur</a>
+</div>
+
+    <script src="js/qcm.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot IA - Projet Nuit de l'Info</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- HEADER COMMUN -->
+    <header class="topbar">
+    <h1 class="site-title">Vador-Mir</h1>
+
+    <nav aria-label="Navigation principale">
+        <ul class="nav-list">
+           
+            <li class="nav-item"><a href="index.html">Accueil</a></li>
+            <li class="nav-item"><a href="chatbot.html">Chatbot IA</a></li>
+            <li class="nav-item"><a href="formation.html">Formation</a></li>
+            <li class="nav-item"><a href="sante.html">Santé</a></li>
+
+            <li class="nav-item nav-right">
+                <a href="signup.html">Inscription</a>
+                <button id="logout-btn" type="button" class="link-button">
+                    Déconnexion
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+
+    <!-- CONTENU SPÉCIFIQUE -->
+    <main>
+        <section aria-labelledby="chatbot-intro-title" class="hero-section">
+            <h2 id="chatbot-intro-title">Poser une question à l’assistant IA</h2>
+            <p>
+                Ce chatbot vous aide à résoudre des problèmes sur des systèmes plus anciens
+                (comme Windows&nbsp;10) en vous proposant des explications étape par étape.
+            </p>
+            <p>
+                Attention : les réponses de l’IA sont des suggestions automatiques et
+                peuvent contenir des erreurs. Vérifiez toujours avant d’appliquer.
+            </p>
+        </section>
+
+        <section aria-labelledby="chatbot-title" class="chatbot-section">
+            <h2 id="chatbot-title">Conversation</h2>
+
+            <div class="chatbot-layout">
+                <div
+                    id="chat-history"
+                    class="chat-history"
+                    role="log"
+                    aria-live="polite"
+                    aria-label="Historique des messages du chatbot"
+                >
+                    <div class="message message-bot">
+                        <p><strong>Assistant :</strong> Bonjour ! Posez-moi une question sur votre système et je ferai de mon mieux pour vous aider.</p>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <label for="user-message">Votre question</label>
+                    <textarea
+                        id="user-message"
+                        name="user-message"
+                        rows="4"
+                        maxlength="500"
+                        placeholder="Exemple : Comment mettre à jour mon navigateur sur Windows 10 ?"
+                        aria-describedby="message-help"
+                        required
+                    ></textarea>
+                    <p id="message-help" class="help-text">
+                        Limité à 500 caractères. Ne saisissez pas de données personnelles
+                        (mot de passe, numéro de carte, etc.).
+                    </p>
+
+                    <p id="chat-error" class="error-message" role="alert" aria-live="assertive"></p>
+
+                    <button type="button" id="send-message-btn" class="btn-primary">
+                        Envoyer la question à l’IA
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+<div class="bottombar">
+    <a href="contact.html">Nous contacter</a>
+    <a href="fournisseur.html">Fournisseur</a>
+</div>
+
+
+
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
+

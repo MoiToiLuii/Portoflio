@@ -1,0 +1,637 @@
+/* ===========================
+   Réglages généraux
+   =========================== */
+
+:root {
+    --color-bg: #f5f5f7;
+    --color-text: #1f2933;
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-secondary: #6b7280;
+    --color-danger: #b91c1c;
+    --max-width: 960px;
+
+    /* Dégradé topbar + bottombar */
+    --fun-blue: #1a64b5;
+    --medium-purple: #b335de;
+    --carissma: #e98da3;
+    --energy-yellow: #facf5b;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+/* ici pour l'inscription */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* le contenu principal prend la place dispo */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* le contenu principal prend la place dispo */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* le contenu principal prend la place dispo */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;  /* horizontal */
+    align-items: center;      /* vertical */
+    flex-direction: column;
+}
+
+.error-message {
+  color: #d00000;
+  margin-top: 0.25rem;
+}
+
+/* Conteneur principal plus étroit et centré */
+main {
+  max-width: 1100px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+/* Titres de section */
+.hero-section h2,
+.features-section h2,
+.info-section h2 {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+}
+
+
+/* Section fonctionnalités avec légère carte transparente */
+.features-section {
+  margin-bottom: 2.5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+/* Cartes fonctionnalités */
+.feature-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(6px);
+}
+
+.feature-card h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.25rem;
+}
+
+/* Forcer la transparence du bloc "Pourquoi..." */
+.info-section {
+  margin-top: 2rem;
+  padding: 1.5rem 0 2rem;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+}
+
+/* Au cas où le fond viendrait du <section> générique */
+section.info-section {
+  background: transparent !important;
+}
+
+
+
+/* Boutons */
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.25);
+  background: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+.hero-section,
+.features-section,
+.info-section {
+  background: transparent;
+}
+
+.hero-section {
+  margin: 1.5rem 0 2.5rem;
+  padding: 1.5rem 0 2rem;
+  background: transparent;      /* plus de fond blanc */
+  border-radius: 0;             /* plus de carte */
+  box-shadow: none;             /* plus d’ombre */
+  backdrop-filter: none;
+}
+
+.enjeux-list {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.enjeux-list li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.08); /* léger voile, tu peux mettre 0 pour totalement transparent */
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(2px); /* optionnel, effet verre dépoli */
+}
+
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--color-text);
+    line-height: 1.5;
+
+    background:
+        /* gros cercle violet */
+        radial-gradient(circle at 10% 15%, rgba(179, 53, 222, 0.18) 0, transparent 40%),
+        /* gros cercle jaune */
+        radial-gradient(circle at 85% 10%, rgba(250, 207, 91, 0.18) 0, transparent 45%),
+        /* gros cercle bleu */
+        radial-gradient(circle at 15% 85%, rgba(26, 100, 181, 0.18) 0, transparent 45%),
+        /* gros cercle rose */
+        radial-gradient(circle at 80% 80%, rgba(233, 141, 163, 0.18) 0, transparent 40%),
+
+        /* faux carré violet (ellipse étirée) */
+        radial-gradient(60% 80% at 30% 40%, rgba(179, 53, 222, 0.12) 0, transparent 60%),
+        /* faux rectangle bleu */
+        radial-gradient(80% 40% at 70% 35%, rgba(26, 100, 181, 0.12) 0, transparent 60%),
+
+        /* faux triangle (3 bandes inclinées qui se croisent) */
+        linear-gradient(135deg, rgba(250, 207, 91, 0.10) 0 25%, transparent 25% 50%, rgba(211, 102, 193, 0.10) 50% 75%, transparent 75% 100%),
+
+        /* fond principal */
+        var(--color-bg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+
+
+
+/* Limiter la largeur du contenu et le centrer */
+main,
+.site-header,
+footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ===========================
+   Liens, boutons, textes
+   =========================== */
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+.btn-primary,
+button.btn-primary {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.375rem;
+    border: none;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.btn-small {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.85rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-secondary);
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.btn-danger {
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    background-color: var(--color-danger);
+    color: #ffffff;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.small-text {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+}
+
+.error-message {
+    color: var(--color-danger);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    min-height: 1.1rem;
+}
+
+.help-text {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+}
+
+/* ===========================
+   Header et navigation
+   =========================== */
+
+/* Topbar avec dégradé */
+.topbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    color: white;
+    font-weight: 600;
+
+    background: linear-gradient(
+        90deg,
+        var(--fun-blue),
+        var(--medium-purple),
+        var(--carissma),
+        var(--energy-yellow)
+    );
+}
+
+.topbar .site-title {
+    margin: 0;
+}
+
+/* Nav dans la topbar */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.nav-item a,
+.nav-item button {
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    background-color: transparent;
+    color: white;
+}
+
+/* Bloc de droite : Inscription + Déconnexion */
+.nav-item.nav-right {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Assure que tout est centré verticalement dans la topbar */
+.topbar {
+    display: flex;
+    align-items: center;
+}
+
+/* Aligne les éléments du menu au centre verticalement */
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Enlève les vieux hacks */
+.nav-list .nav-item:last-child {
+    margin-left: 0;
+    margin-top: 0;
+}
+
+/* Bloc de droite : Inscription + Déconnexion collés à droite */
+.nav-item.nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+/* Page active dans la topbar */
+.nav-item a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.nav-item a:hover,
+.nav-item button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+
+
+/* ===========================
+   Sections génériques
+   =========================== */
+
+
+.admin-section,
+.info-section,
+.contact-section {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+/* Page formation : tout en mode "texte sur fond" */
+
+
+/* Un peu d'espace mais sans carte */
+body.formation-page main {
+  max-width: 1100px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+
+body.formation-page main,
+body.formation-page section,
+body.formation-page .content-block {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+}
+
+/* ===========================
+   Formulaires
+   =========================== */
+
+form {
+    max-width: 480px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    border-radius: 0.375rem;
+    border: 1px solid #cbd5e1;
+    font: inherit;
+}
+
+input:focus,
+textarea:focus,
+button:focus,
+a:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.bottombar {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+
+    color: white;
+    font-weight: 500;
+    margin-top: 1rem;
+
+    /* même dégradé que la topbar, inversé */
+    background: linear-gradient(
+        270deg,
+        var(--fun-blue),
+        var(--medium-purple),
+        var(--carissma),
+        var(--energy-yellow)
+    );
+}
+
+.bottombar a {
+    color: white;
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+}
+
+.bottombar a:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+
+/* ===========================
+   Chatbot
+   =========================== */
+
+.chatbot-section {
+    margin: 1.5rem 0;
+}
+
+.chatbot-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chat-history {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 0.75rem;
+}
+
+.message-user {
+    text-align: right;
+}
+
+.message-bot {
+    text-align: left;
+}
+
+.chat-input-area {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+/* ===========================
+   Tables admin
+   =========================== */
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.admin-table caption {
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.admin-table th,
+.admin-table td {
+    border: 1px solid #e5e7eb;
+    padding: 0.4rem 0.6rem;
+}
+
+.admin-table th {
+    background-color: #f3f4f6;
+    text-align: left;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+
+footer {
+    padding: 1rem;
+    max-width: var(--max-width);
+    margin: 2rem auto 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* ===========================
+   Responsive
+   =========================== */
+
+@media (min-width: 640px) {
+    .features-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 768px) {
+    .chatbot-layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .chat-history,
+    .chat-input-area {
+        flex: 1;
+    }
+}

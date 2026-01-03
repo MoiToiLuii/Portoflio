@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>À propos-AuroreBoréale</title>
+
+  <style>
+    :root{
+      --bg:#f5fbf7;
+      --card:rgba(255,255,255,0.82);
+      --nav-bg:white;
+      --muted:#55606d;
+      --accent:#f30808;
+      --accent-2:#dc0707;
+      --radius:14px;
+      --shadow-soft:0 8px 24px rgba(0,0,0,0.05);
+      --shadow-card:0 4px 18px rgba(0,0,0,0.06);
+      --blur:14px;
+      font-family:Roboto, Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      padding:32px 16px;
+      background:linear-gradient(180deg, #f0fdf4 0%, #f9fffd 70%);
+      display:flex;
+      justify-content:center;
+      color:#0b1820;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+      animation:fadeIn .4s ease;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:32px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    /* ✅ LOGO SANS FOND ROUGE */
+ .logo{
+  width:300px;          /* logo plus grand */
+  height:300px;
+  border-radius:14px;
+  background:transparent; /* PAS DE FOND */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+    /* MODIF LOGO */
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:4px;
+    }
+    /* ===== NAVIGATION ===== */
+    nav{
+      background:var(--nav-bg);
+      padding:8px;
+      border-radius:16px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      gap:6px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--accent-2);
+      font-weight:600;
+      padding:10px 16px;
+      border-radius:12px;
+      transition:.2s ease;
+    }
+    nav a:hover{
+      background:rgba(243,8,8,0.08);
+    }
+    nav a.active{
+      background:linear-gradient(to right,var(--accent),var(--accent-2));
+      color:white;
+    }
+
+    h2{
+      margin-top:0;
+      font-size:28px;
+      letter-spacing:-0.3px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:20px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+      margin-bottom:24px;
+      border:1px solid rgba(255,255,255,0.4);
+      backdrop-filter:blur(var(--blur));
+    }
+
+    .timeline{
+      position:relative;
+      margin-left:10px;
+      padding-left:25px;
+      border-left:3px solid var(--accent-2);
+    }
+    .timeline-item{
+      margin-bottom:22px;
+    }
+    .timeline-item h4{
+      margin:0;
+      color:var(--accent-2);
+    }
+    .timeline-item p{
+      margin:6px 0 0;
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:32px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    @keyframes fadeIn{
+      from{ opacity:0; transform:translateY(6px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <img src="{{ url_for('static', filename='img/logo-nanterre.png') }}"
+               alt="Université Paris Nanterre">
+        </div>
+        <div>
+          <h1 style="margin:0;font-size:20px">AuroreBoréale</h1>
+        </div>
+      </div>
+
+      <nav>
+        <a href="/">Accueil</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contacts</a>
+        <a href="/about">À propos</a>
+        <a href="/history">Historique</a>
+        {% if session.get("user_id") %}
+          <a href="/logout">Déconnexion</a>
+        {% else %}
+          <a href="/login" class="active">Connexion</a>
+        {% endif %}
+      </nav>
+    </header>
+
+    <!-- PRÉSENTATION -->
+    <div class="card">
+      <h2>Le projet</h2>
+      <p>
+        Ce site fait partie d’un projet étudiant ambitieux visant à créer un assistant intelligent pour l’Université Paris Nanterre.
+        L’objectif principal est de fournir aux étudiants, enseignants et personnels administratifs un outil fiable et rapide pour accéder
+        à toutes les informations liées aux démarches universitaires.
+      </p>
+      <p>
+        L’assistant centralise les informations issues des services officiels : scolarité, CROUS, bibliothèques universitaires,
+        relations internationales et vie étudiante. Il adapte ses réponses selon le profil de l’utilisateur.
+      </p>
+      <p>
+        Il propose également des liens directs vers les formulaires, documents et contacts officiels afin de limiter les erreurs
+        et le temps perdu à chercher l’information.
+      </p>
+    </div>
+
+    <!-- OBJECTIFS -->
+    <div class="card">
+      <h2>Les objectifs du projet</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>1 — Centraliser l’information</h4>
+          <p>Regrouper toutes les données officielles de l’université dans une interface unique, claire et fiable.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>2 — Assister les étudiants 24/7</h4>
+          <p>Permettre aux étudiants d’obtenir des réponses immédiates, même en dehors des horaires administratifs.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>3 — Fluidifier la communication</h4>
+          <p>Réduire les sollicitations inutiles envoyées aux services grâce à une meilleure orientation.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>4 — Moderniser l’expérience étudiante</h4>
+          <p>Offrir une interface moderne, intuitive et accessible sur tous les supports.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>5 — Encourager l’autonomie</h4>
+          <p>Aider les étudiants à gérer leurs démarches de manière autonome tout en restant accompagnés.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © Projet étudiant — Université Paris Nanterre
+    </footer>
+
+  </div>
+</body>
+</html>
+
+

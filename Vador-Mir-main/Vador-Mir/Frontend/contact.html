@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nous contacter - Projet Nuit de l'Info</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- HEADER COMMUN -->
+<header class="topbar">
+    <h1 class="site-title">Vador-Mir</h1>
+
+    <nav aria-label="Navigation principale">
+        <ul class="nav-list">
+        
+            <li class="nav-item"><a href="index.html">Accueil</a></li>
+            <li class="nav-item"><a href="chatbot.html">Chatbot IA</a></li>
+            <li class="nav-item"><a href="formation.html">Formation</a></li>
+            <li class="nav-item"><a href="sante.html">Santé</a></li>
+
+            <li class="nav-item nav-right">
+                <a href="signup.html">Inscription</a>
+                <button id="logout-btn" type="button" class="link-button">
+                    Déconnexion
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+
+    <!-- CONTENU SPÉCIFIQUE -->
+    <main>
+        <section aria-labelledby="contact-intro-title" class="hero-section">
+            <h2 id="contact-intro-title">Contactez l’équipe</h2>
+            <p>
+                Utilisez ce formulaire pour nous signaler un problème, proposer une amélioration
+                ou poser une question sur le fonctionnement de l’application.
+            </p>
+            <p>
+                Les informations saisies sont utilisées uniquement dans le cadre de ce projet
+                étudiant pour la Nuit de l’Info et ne sont pas revendues.
+            </p>
+        </section>
+
+        <section aria-labelledby="contact-form-title" class="contact-section">
+            <h2 id="contact-form-title">Formulaire de contact</h2>
+
+            <form method="POST" action="/contact" novalidate class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        maxlength="50"
+                        placeholder="Votre nom"
+                        autocomplete="name"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-email">Adresse e-mail</label>
+                    <input
+                        type="email"
+                        id="contact-email"
+                        name="email"
+                        required
+                        maxlength="100"
+                        placeholder="exemple@domaine.com"
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        required
+                        maxlength="100"
+                        placeholder="Sujet de votre message"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        required
+                        maxlength="1000"
+                        aria-describedby="message-help"
+                        placeholder="Expliquez votre demande (maximum 1000 caractères)…"
+                    ></textarea>
+                    <p id="message-help" class="help-text">
+                        Ne saisissez pas de données sensibles (mot de passe, numéro de carte, etc.).
+                    </p>
+                </div>
+
+                <p id="contact-error" class="error-message" role="alert" aria-live="assertive"></p>
+
+                <button type="submit" class="btn-primary">
+                    Envoyer le message
+                </button>
+            </form>
+        </section>
+
+        <section aria-labelledby="contact-info-title" class="info-section">
+            <h2 id="contact-info-title">Accessibilité et données</h2>
+            <p>
+                Nous essayons de rendre cette page utilisable par le plus grand nombre,
+                y compris les personnes utilisant un lecteur d’écran ou ne pouvant utiliser
+                qu’un clavier.
+            </p>
+            <p>
+                Les champs sont limités en longueur pour éviter les abus et vos données
+                de contact ne sont utilisées que dans le cadre de ce projet.
+            </p>
+        </section>
+    </main>
+
+
+
+<div class="bottombar">
+    <a href="contact.html">Nous contacter</a>
+    <a href="fournisseur.html">Fournisseur</a>
+</div>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

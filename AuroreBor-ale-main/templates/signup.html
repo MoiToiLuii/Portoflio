@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscription-AuroreBoréale</title>
+
+  <!-- Police -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#f30808;
+      --accent-dark:#dc0707;
+      --bg:#f6fbf9;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --radius:14px;
+      --shadow:0 12px 30px rgba(0,0,0,0.08);
+      font-family:"Roboto", sans-serif;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      background:linear-gradient(180deg,#f0fdf4,#f9fffd);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    header{
+      width:100%;
+      max-width:1100px;
+      padding:24px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    /* ===== LOGO UNIFORMISÉ ===== */
+    .logo{
+      width:175px;          /* logo plus grand */
+      height:175px;
+      border-radius:14px;
+      background:transparent; /* pas de fond */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:4px;
+    }
+
+    /* ====== NAVIGATION ENCADRÉE ====== */
+    nav{
+      background:var(--card);
+      padding:8px;
+      border-radius:16px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+      display:flex;
+      gap:6px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--accent-dark);
+      font-weight:600;
+      padding:10px 16px;
+      border-radius:12px;
+      transition:all 0.2s ease;
+    }
+
+    nav a:hover{
+      background:rgba(243,8,8,0.1);
+    }
+
+    nav a.active{
+      background:linear-gradient(to right,var(--accent),var(--accent-dark));
+      color:white;
+      box-shadow:0 6px 18px rgba(243,8,8,0.35);
+    }
+
+    /* ====== CARD INSCRIPTION ====== */
+    .signup-container{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:32px 16px;
+    }
+
+    .signup-card{
+      background:var(--card);
+      width:100%;
+      max-width:420px;
+      padding:32px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .signup-card h1{
+      margin-top:0;
+      margin-bottom:8px;
+      text-align:center;
+      font-size:26px;
+    }
+
+    .signup-card p.subtitle{
+      text-align:center;
+      color:var(--muted);
+      margin-bottom:24px;
+      font-size:14px;
+    }
+
+    label{
+      font-weight:500;
+      display:block;
+      margin-bottom:6px;
+      margin-top:14px;
+    }
+
+    input{
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid #d1d5db;
+      font-size:14px;
+    }
+
+    input:focus{
+      outline:none;
+      border-color:var(--accent);
+      box-shadow:0 0 0 2px rgba(243,8,8,0.15);
+    }
+
+    button{
+      width:100%;
+      margin-top:24px;
+      padding:12px;
+      border:none;
+      border-radius:12px;
+      font-weight:600;
+      font-size:15px;
+      cursor:pointer;
+      color:white;
+      background:linear-gradient(to right,var(--accent),var(--accent-dark));
+      box-shadow:0 10px 24px rgba(243,8,8,0.35);
+    }
+
+    button:hover{
+      transform:translateY(-1px);
+      box-shadow:0 14px 30px rgba(243,8,8,0.45);
+    }
+
+    .login-link{
+      text-align:center;
+      margin-top:18px;
+      font-size:14px;
+    }
+
+    .login-link a{
+      color:var(--accent-dark);
+      font-weight:600;
+      text-decoration:none;
+    }
+
+    .login-link a:hover{
+      text-decoration:underline;
+    }
+
+    /* ====== TOGGLE PASSWORD ====== */
+    .toggle-password{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      cursor:pointer;
+      font-size:16px;
+      color:#9ca3af;
+      user-select:none;
+    }
+
+    .toggle-password:hover{
+      color:var(--accent-dark);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='img/logo-nanterre.png') }}"
+           alt="Université Paris Nanterre">
+    </div>
+    <div>
+      <h1 style="margin:0;font-size:18px">AuroreBoréale</h1>
+    </div>
+  </div>
+
+  <nav>
+    <a href="/">Accueil</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact">Contacts</a>
+    <a href="/about">À propos</a>
+    <a href="/history">Historique</a>
+
+    {% if session.get("user_id") %}
+      <a href="/logout">Déconnexion</a>
+    {% else %}
+      <a href="/login" class="active">Connexion</a>
+    {% endif %}
+  </nav>
+</header>
+
+<div class="signup-container">
+  <div class="signup-card">
+    <h1>Inscription</h1>
+    <p class="subtitle">Crée ton compte étudiant</p>
+
+    <form method="POST" action="/signup">
+      <label>Pseudo :</label>
+      <input type="text" name="username" required>
+
+      <label>Mot de passe :</label>
+      <div style="position:relative">
+        <input type="password" name="password" id="password" required>
+        <span class="toggle-password" onclick="togglePassword()">👁</span>
+      </div>
+
+      <button type="submit">S'inscrire</button>
+    </form>
+
+    <p class="login-link">
+      Déjà un compte ?
+      <a href="/login">Connexion</a>
+    </p>
+  </div>
+</div>
+
+<script>
+function togglePassword(){
+  const input = document.getElementById("password");
+  input.type = input.type === "password" ? "text" : "password";
+}
+</script>
+
+</body>
+</html>

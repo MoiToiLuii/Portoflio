@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Projet Nuit de l'Info</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- HEADER COMMUN -->
+<header class="topbar">
+    <h1 class="site-title">Vador-Mir</h1>
+
+    <nav aria-label="Navigation principale">
+        <ul class="nav-list">
+           
+            <li class="nav-item"><a href="index.html">Accueil</a></li>
+            <li class="nav-item"><a href="chatbot.html">Chatbot IA</a></li>
+            <li class="nav-item"><a href="formation.html">Formation</a></li>
+            <li class="nav-item"><a href="sante.html">Santé</a></li>
+
+            <li class="nav-item nav-right">
+                <a href="signup.html">Inscription</a>
+                <button id="logout-btn" type="button" class="link-button">
+                    Déconnexion
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+
+    <!-- CONTENU SPÉCIFIQUE -->
+    <main>
+        <section aria-labelledby="signup-title" class="login-section">
+            <h2 id="signup-title">Créer un compte</h2>
+
+            <p>Inscrivez-vous avec votre adresse e‑mail pour utiliser l’application.</p>
+
+            <form method="POST" action="/signup" novalidate>
+                <div class="form-group">
+                    <label for="email">Adresse e-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        maxlength="100"
+                        autocomplete="email"
+                        placeholder="exemple@domaine.com"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        minlength="8"
+                        maxlength="64"
+                        autocomplete="new-password"
+                        placeholder="Choisissez un mot de passe"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password-confirm">Confirmer le mot de passe</label>
+                    <input
+                        type="password"
+                        id="password-confirm"
+                        name="password_confirm"
+                        required
+                        minlength="8"
+                        maxlength="64"
+                        autocomplete="new-password"
+                        placeholder="Retapez le mot de passe"
+                    >
+                </div>
+
+                <p id="signup-error" class="error-message" role="alert" aria-live="assertive"></p>
+
+                <button type="submit" class="btn-primary">Créer le compte</button>
+            </form>
+
+            <p class="secondary-link">
+                Vous avez déjà un compte ?
+                <a href="login.html">Se connecter</a>
+            </p>
+        </section>
+    </main>
+
+
+
+<div class="bottombar">
+    <a href="contact.html">Nous contacter</a>
+    <a href="fournisseur.html">Fournisseur</a>
+</div>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

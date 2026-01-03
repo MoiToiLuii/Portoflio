@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contacts-AuroreBoréale</title>
+
+  <style>
+    :root{
+      --bg:#f5fbf7;
+      --card:rgba(255,255,255,0.82);
+      --muted:#55606d;
+      --accent:#f30808;
+      --accent-2:#dc0707;
+      --radius:14px;
+      --shadow-soft:0 8px 24px rgba(0,0,0,0.05);
+      --shadow-card:0 4px 18px rgba(0,0,0,0.06);
+      --blur:14px;
+      font-family:Roboto, Inter, system-ui, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      padding:32px 16px;
+      background:linear-gradient(180deg,#f0fdf4 0%,#f9fffd 70%);
+      display:flex;
+      justify-content:center;
+      color:#0b1820;
+    }
+
+    .container{width:100%;max-width:900px;}
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:32px;
+    }
+
+    .brand{display:flex;gap:12px;align-items:center;}
+
+    /* ✅ LOGO SANS FOND */
+.logo{
+  width:250px;          /* logo plus grand */
+  height:250px;
+  border-radius:14px;
+  background:transparent; /* PAS DE FOND */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+    /* MODIF LOGO */
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:4px;
+    }
+
+    /* ===== BARRE NAVIGATION ===== */
+    nav{
+      background:var(--card);
+      padding:8px;
+      border-radius:16px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      gap:6px;
+    }
+    nav a{
+      text-decoration:none;
+      padding:10px 16px;
+      font-weight:600;
+      border-radius:12px;
+      color:var(--accent-2);
+      transition:.2s ease;
+    }
+    nav a:hover{
+      background:rgba(243,8,8,0.08);
+    }
+    nav a.active{
+      background:linear-gradient(to right,var(--accent),var(--accent-2));
+      color:white;
+    }
+
+    h2{margin-top:0;font-size:28px;}
+
+    .section{
+      background:var(--card);
+      padding:22px;
+      border-radius:var(--radius);
+      backdrop-filter:blur(var(--blur));
+      box-shadow:var(--shadow-soft);
+      margin-bottom:24px;
+      border:1px solid rgba(255,255,255,0.4);
+    }
+
+    .section h3{margin-top:0;}
+
+    .contact-item{
+      margin-top:14px;
+      padding:14px;
+      border-radius:10px;
+      background:rgba(255,255,255,0.7);
+      border:1px solid #e7eee9;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .label{font-weight:700;color:#0b1820;}
+
+    footer{text-align:center;color:var(--muted);margin-top:30px;}
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div class="brand">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='img/logo-nanterre.png') }}"
+           alt="Université Paris Nanterre">
+    </div>
+    <div>
+      <h1 style="margin:0;font-size:20px">AuroreBoréale</h1>
+    </div>
+  </div>
+
+  <nav>
+    <a href="/">Accueil</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact">Contacts</a>
+    <a href="/about">À propos</a>
+    <a href="/history">Historique</a>
+
+    {% if session.get("user_id") %}
+      <a href="/logout">Déconnexion</a>
+    {% else %}
+      <a href="/login" class="active">Connexion</a>
+    {% endif %}
+  </nav>
+</header>
+
+<h2>Contacts officiels</h2>
+
+<!-- SCOLARITÉ -->
+<div class="section">
+<h3>Scolarité & Inscriptions</h3>
+
+<div class="contact-item">
+<span class="label">Scolarité générale</span><br>
+📧 scolarite@liste.parisnanterre.fr<br>
+🕒 Lundi–Vendredi : 9h–12h / 13h–16h<br>
+Gestion des inscriptions, attestations, certificats et dossiers étudiants.
+</div>
+
+<div class="contact-item">
+<span class="label">UFR Droit</span><br>
+📧 droit-scolarite@parisnanterre.fr<br>
+☎ 01 40 97 58 00<br>
+Inscriptions pédagogiques, examens, jurys et diplômes.
+</div>
+
+<div class="contact-item">
+<span class="label">UFR Lettres, Langues & Arts</span><br>
+📧 lettres-scol@parisnanterre.fr<br>
+Gestion des parcours LLCE, LEA, Lettres modernes.
+</div>
+</div>
+
+<!-- CROUS -->
+<div class="section">
+<h3>CROUS — Logement & Bourses</h3>
+
+<div class="contact-item">
+<span class="label">Dossier Social Étudiant (DSE)</span><br>
+🌐 https://www.messervices.etudiant.gouv.fr<br>
+☎ 01 39 23 60 00<br>
+Logement universitaire, bourses, aides sociales.
+</div>
+
+<div class="contact-item">
+<span class="label">Restauration universitaire</span><br>
+📧 ru@crous-versailles.fr<br>
+Infos sur les restaurants, tarifs et cartes Izly.
+</div>
+</div>
+
+<!-- BU -->
+<div class="section">
+<h3>Bibliothèque universitaire</h3>
+
+<div class="contact-item">
+<span class="label">BU Centrale</span><br>
+📧 bu@parisnanterre.fr<br>
+🕒 8h30–19h (Lundi–Vendredi)<br>
+Prêts, réservations, salles de travail.
+</div>
+
+<div class="contact-item">
+<span class="label">Aide documentaire</span><br>
+📧 infodoc@parisnanterre.fr<br>
+Accompagnement à la recherche et aux bases de données.
+</div>
+</div>
+
+<!-- INTERNATIONAL -->
+<div class="section">
+<h3>Relations internationales</h3>
+
+<div class="contact-item">
+<span class="label">Mobilité Erasmus & échanges</span><br>
+📧 international@parisnanterre.fr<br>
+Mobilités sortantes, entrantes, conventions internationales.
+</div>
+
+<div class="contact-item">
+<span class="label">Accueil étudiants internationaux</span><br>
+📧 ioe@parisnanterre.fr<br>
+Visa, titre de séjour, intégration académique.
+</div>
+</div>
+
+<!-- VIE ÉTUDIANTE -->
+<div class="section">
+<h3>Vie étudiante & Accompagnement</h3>
+
+<div class="contact-item">
+<span class="label">Service de santé universitaire</span><br>
+📧 ssu@parisnanterre.fr<br>
+☎ 01 40 97 49 20<br>
+Consultations médicales, psychologiques, prévention.
+</div>
+
+<div class="contact-item">
+<span class="label">Handicap & accessibilité</span><br>
+📧 handicap@parisnanterre.fr<br>
+Aménagements d’examens et accompagnement personnalisé.
+</div>
+
+<div class="contact-item">
+<span class="label">Associations & vie de campus</span><br>
+📧 vie-etudiante@parisnanterre.fr<br>
+Engagement associatif, événements, culture & sport.
+</div>
+</div>
+
+<footer>
+© Projet étudiant — Université Paris Nanterre
+</footer>
+
+</div>
+</body>
+</html>
